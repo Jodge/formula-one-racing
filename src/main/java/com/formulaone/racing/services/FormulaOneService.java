@@ -1,4 +1,4 @@
-package com.motor.racing.services;
+package com.formulaone.racing.services;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -12,7 +12,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ErgastService {
+public class FormulaOneService {
 
     private static String readAll(Reader rd) throws IOException {
         StringBuilder sb = new StringBuilder();
@@ -38,7 +38,7 @@ public class ErgastService {
 
     public JSONObject getMainJson() throws IOException, JSONException {
 
-        JSONObject response = readJsonFromUrl("http://ergast.com/api/f1/2013/driverStandings.json");
+        JSONObject response = readJsonFromUrl("http://ergast.com/api/f1/2015/driverStandings.json");
         return response;
     }
 
@@ -53,7 +53,7 @@ public class ErgastService {
         }
     }
 
-    public JSONArray getErgastMotoRacingData() {
+    public JSONArray getFormulaOneRacingData() {
 
         JSONArray rootArray = new JSONArray();
         JSONObject object = getStandingsLists().getJSONObject(0);

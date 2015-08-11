@@ -1,6 +1,6 @@
-package com.motor.racing.objects;
+package com.formulaone.racing.objects;
 
-public class MotoRacing {
+public class FormulaOne {
 
     private Integer position;
     private String name;
@@ -10,7 +10,7 @@ public class MotoRacing {
     private String raceUrl;
     private String nationality;
 
-    public MotoRacing(Integer position, String name, String race, Integer points, String url, String raceUrl, String nationality) {
+    public FormulaOne(Integer position, String name, String race, Integer points, String url, String raceUrl, String nationality) {
         this.position = position;
         this.name = name;
         this.race = race;

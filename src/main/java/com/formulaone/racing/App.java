@@ -1,4 +1,4 @@
-package com.motor.racing;
+package com.formulaone.racing;
 
 import static spark.Spark.get;
 
@@ -14,9 +14,10 @@ import org.json.JSONObject;
 import spark.Request;
 import spark.Response;
 import spark.Route;
+import spark.Spark;
 
-import com.motor.racing.objects.MotoRacing;
-import com.motor.racing.services.ErgastService;
+import com.formulaone.racing.objects.FormulaOne;
+import com.formulaone.racing.services.FormulaOneService;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -24,10 +25,12 @@ import freemarker.template.Template;
 public class App {
 
     public static void main(String[] args) throws Exception {
-        final Configuration configuration = new Configuration();
+		final Configuration configuration = new Configuration();
         configuration.setClassForTemplateLoading(App.class, "/");
+        
+        Spark.staticFileLocation("/public");
 
-        final ErgastService ergastService = new ErgastService();
+        final FormulaOneService ergastService = new FormulaOneService();
 
         get(new Route("/") {
 
@@ -36,15 +39,15 @@ public class App {
                 try {
 
                     Map<String, Object> input = new HashMap<String, Object>();
-                    List<MotoRacing> motoRacing = new ArrayList<MotoRacing>();
+                    List<FormulaOne> formulaOne = new ArrayList<FormulaOne>();
 
-                    JSONArray jsonArray = ergastService.getErgastMotoRacingData();
+                    JSONArray jsonArray = ergastService.getFormulaOneRacingData();
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
-                        motoRacing.add(new MotoRacing(jsonObject.getInt("position"), jsonObject.getString("name"), jsonObject.getString("array"), jsonObject
+                        formulaOne.add(new FormulaOne(jsonObject.getInt("position"), jsonObject.getString("name"), jsonObject.getString("race"), jsonObject
                                 .getInt("points"), jsonObject.getString("url"), jsonObject.getString("raceUrl"), jsonObject.getString("nationality")));
                     }
-                    input.put("motors", motoRacing);
+                    input.put("formulaones", formulaOne);
 
                     Template indexTemplate = configuration.getTemplate("index.ftl");
                     StringWriter writer = new StringWriter();
