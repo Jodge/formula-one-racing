@@ -30,7 +30,7 @@ public class App {
         
         Spark.staticFileLocation("/public");
 
-        final FormulaOneService ergastService = new FormulaOneService();
+        final FormulaOneService formulaOneService = new FormulaOneService();
 
         get(new Route("/") {
 
@@ -41,7 +41,7 @@ public class App {
                     Map<String, Object> input = new HashMap<String, Object>();
                     List<FormulaOne> formulaOne = new ArrayList<FormulaOne>();
 
-                    JSONArray jsonArray = ergastService.getFormulaOneRacingData();
+                    JSONArray jsonArray = formulaOneService.getFormulaOneRacingData();
                     for (int i = 0; i < jsonArray.length(); i++) {
                         JSONObject jsonObject = jsonArray.getJSONObject(i);
                         formulaOne.add(new FormulaOne(jsonObject.getInt("position"), jsonObject.getString("name"), jsonObject.getString("race"), jsonObject
