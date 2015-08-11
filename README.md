@@ -1,4 +1,5 @@
 Formula One Racing is a web application that displays the table standings for the 2015 Formula One Racing Championship
+using the Ergast Developer API http://ergast.com/mrd/
 
 A maven project that is built with Spark Java and FreeMarker as the templating engine
 
