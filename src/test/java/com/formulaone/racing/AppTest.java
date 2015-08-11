@@ -1,4 +1,4 @@
-package com.motor.racing;
+package com.formulaone.racing;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
