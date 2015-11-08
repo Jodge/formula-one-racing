@@ -28,6 +28,8 @@ public class App {
 		final Configuration configuration = new Configuration();
         configuration.setClassForTemplateLoading(App.class, "/");
         
+        Spark.setPort(8080);
+        
         Spark.staticFileLocation("/public");
 
         final FormulaOneService formulaOneService = new FormulaOneService();
