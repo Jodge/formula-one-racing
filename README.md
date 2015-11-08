@@ -14,7 +14,7 @@ https://maven.apache.org/
 Run the applciation from the command via
 $ mvn compile exec:java -Dexec.mainClass=com.formulaone.racing.App
 
-Linux platorm users can run the application via
+Linux platform users can run the application via
 $ sh execute.sh
 
 
