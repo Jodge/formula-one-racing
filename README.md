@@ -4,6 +4,7 @@ Formula One Racing is a web application that displays the table standings for th
 A project that is built with Spark Java and FreeMarker as the templating engine
 
 REQUIREMENTS
+
 1. JAVA Virtual Machine 1.7 and above
 http://www.oracle.com/technetwork/java/javase/downloads/index.html
 
