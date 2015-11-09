@@ -22,8 +22,16 @@ import com.formulaone.racing.services.FormulaOneService;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 
+/**
+ * @author George Otieno
+ *
+ */
 public class App {
 
+    /**
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
 		final Configuration configuration = new Configuration();
         configuration.setClassForTemplateLoading(App.class, "/");

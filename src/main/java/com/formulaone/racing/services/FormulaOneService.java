@@ -12,8 +12,17 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+/**
+ * @author George Otieno
+ *
+ */
 public class FormulaOneService {
 
+    /**
+     * @param rd
+     * @return
+     * @throws IOException
+     */
     private static String readAll(Reader rd) throws IOException {
         StringBuilder sb = new StringBuilder();
         int cp;
@@ -24,6 +33,12 @@ public class FormulaOneService {
         return sb.toString();
     }
 
+    /**
+     * @param url
+     * @return
+     * @throws IOException
+     * @throws JSONException
+     */
     public static JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
         InputStream is = new URL(url).openStream();
         try {
@@ -36,12 +51,20 @@ public class FormulaOneService {
         }
     }
 
+    /**
+     * @return
+     * @throws IOException
+     * @throws JSONException
+     */
     public JSONObject getMainJson() throws IOException, JSONException {
 
         JSONObject response = readJsonFromUrl("http://ergast.com/api/f1/2015/driverStandings.json");
         return response;
     }
 
+    /**
+     * @return
+     */
     public JSONArray getStandingsLists() {
         JSONArray standingsList;
         try {
@@ -53,6 +76,9 @@ public class FormulaOneService {
         }
     }
 
+    /**
+     * @return
+     */
     public JSONArray getFormulaOneRacingData() {
 
         JSONArray rootArray = new JSONArray();

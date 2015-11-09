@@ -1,5 +1,9 @@
 package com.formulaone.racing.objects;
 
+/**
+ * @author George Otieno
+ *
+ */
 public class FormulaOne {
 
     private Integer position;
