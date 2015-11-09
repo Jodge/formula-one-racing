@@ -37,7 +37,7 @@ public class App {
         get(new Route("/") {
 
             @Override
-            public Object handle(Request arg0, Response arg1) {
+            public Object handle(Request request, Response response) {
                 try {
 
                     Map<String, Object> input = new HashMap<String, Object>();
