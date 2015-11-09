@@ -6,16 +6,20 @@ A project that is built with Spark Java and FreeMarker as the templating engine
 REQUIREMENTS
 
 1. JAVA Virtual Machine 1.7 and above
+
 http://www.oracle.com/technetwork/java/javase/downloads/index.html
 
 2. Apache Maven
+
 https://maven.apache.org/
 
 Run the applciation from the command via
-$ mvn compile exec:java -Dexec.mainClass=com.formulaone.racing.App
+
+# $ mvn compile exec:java -Dexec.mainClass=com.formulaone.racing.App
 
 Linux platform users can run the application via
-$ sh execute.sh
+
+# $ sh execute.sh
 
 
 Visit http://localhost:8080 to see the app in action 
