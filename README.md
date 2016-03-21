@@ -21,7 +21,8 @@ Windows platform users can run the application via
 
 Linux platform users can run the application via
 
-$ sh execute.sh
+$ chmod +x execute.sh
+$ ./execute.sh
 
 
 Visit http://localhost:8080 to see the app in action 
