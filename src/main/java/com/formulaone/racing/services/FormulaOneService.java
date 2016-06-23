@@ -17,6 +17,8 @@ import org.json.JSONObject;
  *
  */
 public class FormulaOneService {
+	
+	private static final String ERGAST_URL = "http://ergast.com/api/f1/2015/driverStandings.json";
 
     /**
      * @param rd
@@ -58,7 +60,7 @@ public class FormulaOneService {
      */
     public JSONObject getMainJson() throws IOException, JSONException {
 
-        JSONObject response = readJsonFromUrl("http://ergast.com/api/f1/2015/driverStandings.json");
+        JSONObject response = readJsonFromUrl(ERGAST_URL);
         return response;
     }
 

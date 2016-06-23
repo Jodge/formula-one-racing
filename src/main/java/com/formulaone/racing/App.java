@@ -27,6 +27,8 @@ import freemarker.template.Template;
  *
  */
 public class App {
+	
+	private static final int SERVER_PORT = 8080;
 
     /**
      * @param args
@@ -36,7 +38,7 @@ public class App {
 		final Configuration configuration = new Configuration();
         configuration.setClassForTemplateLoading(App.class, "/");
         
-        Spark.setPort(8080);
+        Spark.setPort(SERVER_PORT);
         
         Spark.staticFileLocation("/public");
 
