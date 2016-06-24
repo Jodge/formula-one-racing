@@ -29,6 +29,7 @@ import freemarker.template.Template;
 public class App {
 	
 	private static final int SERVER_PORT = 8080;
+	private static final String year = "2015";
 
     /**
      * @param args
@@ -42,7 +43,7 @@ public class App {
         
         Spark.staticFileLocation("/public");
 
-        final FormulaOneService formulaOneService = new FormulaOneService();
+        final FormulaOneService formulaOneService = new FormulaOneService("2015");
 
         get(new Route("/") {
 
@@ -60,6 +61,7 @@ public class App {
                                 .getInt("points"), jsonObject.getString("url"), jsonObject.getString("raceUrl"), jsonObject.getString("nationality")));
                     }
                     input.put("formulaones", formulaOne);
+                    input.put("year", year);
 
                     Template indexTemplate = configuration.getTemplate("index.ftl");
                     StringWriter writer = new StringWriter();

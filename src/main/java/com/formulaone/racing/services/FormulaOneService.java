@@ -17,8 +17,12 @@ import org.json.JSONObject;
  *
  */
 public class FormulaOneService {
-	
-	private static final String ERGAST_URL = "http://ergast.com/api/f1/2015/driverStandings.json";
+    
+    private String ERGAST_URL;
+    
+    public FormulaOneService(String year) {
+        ERGAST_URL = "http://ergast.com/api/f1/" + year + "/driverStandings.json";
+    }
 
     /**
      * @param rd
