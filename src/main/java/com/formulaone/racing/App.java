@@ -29,7 +29,6 @@ import freemarker.template.Template;
 public class App {
 	
 	private static final int SERVER_PORT = 8080;
-	private static final String year = "2015";
 
     /**
      * @param args
@@ -42,17 +41,38 @@ public class App {
         Spark.setPort(SERVER_PORT);
         
         Spark.staticFileLocation("/public");
-
-        final FormulaOneService formulaOneService = new FormulaOneService("2015");
-
+        
         get(new Route("/") {
+
+            @Override
+            public Object handle(Request request, Response response) {
+                try {      
+
+                    Template indexTemplate = configuration.getTemplate("index.ftl");
+                    StringWriter writer = new StringWriter();
+                    indexTemplate.process(null, writer);
+
+                    return writer;
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            }
+        });
+        
+        get(new Route("/:year") {
 
             @Override
             public Object handle(Request request, Response response) {
                 try {
 
                     Map<String, Object> input = new HashMap<String, Object>();
-                    List<FormulaOne> formulaOne = new ArrayList<FormulaOne>();
+                    List<FormulaOne> formulaOne = new ArrayList<FormulaOne>();                    
+                    
+                    
+                    String year = request.params(":year");
+                    final FormulaOneService formulaOneService = new FormulaOneService(year);
 
                     JSONArray jsonArray = formulaOneService.getFormulaOneRacingData();
                     for (int i = 0; i < jsonArray.length(); i++) {
@@ -63,9 +83,9 @@ public class App {
                     input.put("formulaones", formulaOne);
                     input.put("year", year);
 
-                    Template indexTemplate = configuration.getTemplate("index.ftl");
+                    Template yearTemplate = configuration.getTemplate("year.ftl");
                     StringWriter writer = new StringWriter();
-                    indexTemplate.process(input, writer);
+                    yearTemplate.process(input, writer);
 
                     return writer;
 

@@ -1,0 +1,1 @@
+$(document).ready(function(){function e(){var e=[],n=new Date,t=n.getFullYear();for(i=t;i>=1950;i--)e.push(i);return e}function n(e,n,r){var a=document.createElement("li"),i=document.createElement("a");a.appendChild(i),i.href="/"+e,document.getElementById("yearList").appendChild(a),t=document.createTextNode(e),i.innerHTML=i.innerHTML+e}var t;e().forEach(n)});
