@@ -22,6 +22,7 @@ Windows platform users can run the application via
 Linux platform users can run the application via
 
 > $ chmod +x execute.sh
+
 > $ ./execute.sh
 
 
