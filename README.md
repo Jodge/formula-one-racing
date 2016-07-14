@@ -1,5 +1,5 @@
 # formula-one-racing
-Formula One Racing is a Java web application that displays the table standings for the 2015 Formula One Drivers using the Ergast Developer API data feed
+Formula One Racing is a Java web application that displays the table standings for the Formula One Drivers using the Ergast Developer API data feed
 
 A project that is built with Spark Java and FreeMarker as the templating engine
 
